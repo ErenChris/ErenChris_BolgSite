@@ -1,4 +1,5 @@
 ﻿using BolgSite.Data;
+using BolgSite.Data.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -26,6 +27,7 @@ namespace BolgSite
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddTransient<IRepository, Repository>();
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(_configuration["DefaultConnection"]));
         }
 

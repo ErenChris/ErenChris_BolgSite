@@ -1,4 +1,6 @@
-﻿using BolgSite.Models;
+﻿using BolgSite.Data;
+using BolgSite.Data.Repository;
+using BolgSite.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +11,13 @@ namespace BolgSite.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IRepository _Repository;
+
+        public HomeController(IRepository Repository)
+        {
+            _Repository = Repository;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -25,10 +34,14 @@ namespace BolgSite.Controllers
             return View(new Post());
         }
        
-        [HttpGet]
-        public IActionResult GetEditResults(Post post)
+        [HttpPost]
+        public async Task<IActionResult> Edit(Post post)
         {
-            return RedirectToAction("Index");
+            _Repository.AddPost(post);
+            if (await _Repository.SaveChangesAsync())
+                return RedirectToAction("Index");
+            else
+                return View(post);
         }
     }
 }
