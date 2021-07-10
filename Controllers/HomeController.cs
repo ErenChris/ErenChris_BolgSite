@@ -20,7 +20,8 @@ namespace BolgSite.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var posts = _Repository.GetAllPosts();
+            return View(posts);
         }
 
         public IActionResult Post()

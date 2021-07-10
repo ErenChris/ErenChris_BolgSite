@@ -20,7 +20,7 @@ namespace BolgSite.Data.Repository
             _Dbc.Posts.Add(post);
         }
 
-        public List<Post> GetAllPosts(int Id)
+        public List<Post> GetAllPosts()
         {
             return _Dbc.Posts.ToList();
         }

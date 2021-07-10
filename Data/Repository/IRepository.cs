@@ -12,7 +12,7 @@ namespace BolgSite.Data.Repository
         void RemovePost(int Id);
         void UpdatePost(Post post);
         Post GetPostById(int Id);
-        List<Post> GetAllPosts(int Id);
+        List<Post> GetAllPosts();
 
         Task<bool> SaveChangesAsync();
     }
