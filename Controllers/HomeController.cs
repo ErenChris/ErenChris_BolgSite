@@ -24,21 +24,32 @@ namespace BolgSite.Controllers
             return View(posts);
         }
 
-        public IActionResult Post()
+        public IActionResult Post(int id)
         {
-            return View();
+            var post = _Repository.GetPostById(id);
+            return View(post);
         }
 
         [HttpGet]
-        public IActionResult Edit()
+        public IActionResult Edit(int? id)
         {
-            return View(new Post());
+            if (id == null)
+                return View(new Post());
+            else
+            {
+                var post = _Repository.GetPostById((int)id);
+                return View(post);
+            }
         }
-       
+
         [HttpPost]
         public async Task<IActionResult> Edit(Post post)
         {
-            _Repository.AddPost(post);
+            if (post.Id > 0)
+                _Repository.UpdatePost(post);
+            else
+                _Repository.AddPost(post);
+
             if (await _Repository.SaveChangesAsync())
                 return RedirectToAction("Index");
             else
