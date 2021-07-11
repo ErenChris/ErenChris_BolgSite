@@ -55,5 +55,14 @@ namespace BolgSite.Controllers
             else
                 return View(post);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> RemovePost(int id)
+        {
+            _Repository.RemovePost(id);
+            await _Repository.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
     }
 }
