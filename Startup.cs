@@ -26,7 +26,12 @@ namespace BolgSite
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddDefaultIdentity<IdentityUser>(options => {
+                options.Password.RequireDigit = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 6;
+            })
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<AppDbContext>();
             services.AddTransient<IRepository, Repository>();
