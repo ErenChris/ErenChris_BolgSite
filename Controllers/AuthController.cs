@@ -28,7 +28,7 @@ namespace BolgSite.Controllers
         {
             var result = await _signInManager.PasswordSignInAsync(loginViewModel.UserName, loginViewModel.Password, false, false);
 
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index","AdminPanel");
         }
 
         [HttpGet]
