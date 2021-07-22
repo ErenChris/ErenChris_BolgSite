@@ -17,6 +17,11 @@ namespace BolgSite.Data.FileManager
             _ImagePath = cfg["Path:Images"];
         }
 
+        public FileStream imageStream(string image)
+        {
+            return new FileStream(Path.Combine(_ImagePath, image), FileMode.Open, FileAccess.Read);
+        }
+
         async Task<string> IFileManager.SaveImage(IFormFile Image)
         {
             try
@@ -37,7 +42,7 @@ namespace BolgSite.Data.FileManager
 
                 return FileName;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 return "ErrorInFileManager";

@@ -6,4 +6,10 @@
 
 <h2>@Model.Title</h2>
 
+@if (!String.IsNullOrEmpty(Model.ImagePath))
+{
+    var getmethod_Image_Path = $"/Image/{Model.ImagePath}";
+    <img src="@getmethod_Image_Path" width="400" alt="ShowImageError" />
+}
+
 <p>@Model.Body</p>
