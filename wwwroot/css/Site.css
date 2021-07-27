@@ -1,12 +1,13 @@
 ﻿body {
-    margin:0;
+    margin: 0;
 }
 
 a {
 }
 
     a:hover {
-        text-decoration: underline;
+        text-decoration: none;
+        color: #ffffff;
     }
 
 nav {
@@ -19,7 +20,18 @@ nav {
     nav a {
         color: #b2b2b2;
         text-decoration: none;
-        display:inline-block;
-        padding:60px;
-        padding-top:15px;
+        display: inline-block;
+        padding: 60px;
+        padding-top: 15px;
     }
+
+.main-img {
+    height: 5000px;
+    background-image: url("../Content/Static/background.jpeg");
+    background-position: center;
+    background-size: cover;
+}
+
+.title {
+    position: absolute;
+}

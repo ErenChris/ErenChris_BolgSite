@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Content\Static\" />
     <Folder Include="wwwroot\Content\Blog\" />
   </ItemGroup>
 
