@@ -6,7 +6,6 @@ a {
 }
 
     a:hover {
-        text-decoration: none;
         color: #ffffff;
     }
 
@@ -26,7 +25,7 @@ nav {
     }
 
 .main-img {
-    height: 5000px;
+    height: 500px;
     background-image: url("../Content/Static/background.jpeg");
     background-position: center;
     background-size: cover;
