@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <UserSecretsId>c0c2c9ef-a352-4cf5-8890-d1bd349a15af</UserSecretsId>
+    <StartupObject>BolgSite.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,7 +12,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
